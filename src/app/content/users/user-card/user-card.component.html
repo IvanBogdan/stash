@@ -1,0 +1,8 @@
+<div class="card" (click)="selectUser()">
+  <p class="closeX" (click)="removeUser()">x</p>
+  <img [src]="getAvatar()" alt="Avatar" style="width:100%;">
+  <div class="container">
+    <h4><b>{{user?.getName()}}</b></h4> 
+    <p>Age: {{user?.getAge()}}</p> 
+  </div>
+</div>

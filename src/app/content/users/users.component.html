@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let user of users">
+    <div [class]="getUserClass(user?.getId())">
+        <app-user-card [user]="user" (userRemover)="removeUser(user.getName())" (userSelected)="selectedUser=user"></app-user-card>
+    </div>
+  </li>
+</ul>

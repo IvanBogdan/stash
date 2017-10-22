@@ -1,0 +1,11 @@
+.user {
+    margin: 5px;
+    width: 200px;
+}
+.selectedUser {
+    margin: 5px;
+    width: 250px;
+}
+ul {
+    list-style-type: none;
+  }
