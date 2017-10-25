@@ -8,7 +8,7 @@ import { UserService, User } from '../../user/user.service';
 })
 export class UsersComponent implements OnInit {
 
-  users: Array<User>;
+  users;
 
   public selectedUser: User;
 
@@ -19,19 +19,32 @@ export class UsersComponent implements OnInit {
   }
 
   updateUsers(): void {
-    this.users = this._userService.getUsers();
+    this._userService.getAll().subscribe(users => this.users = users);
   }
 
-  removeUser(name: string): void {
-    this._userService.removeUser(name);
+  removeUser(_id: string): void {
+    this._userService.removeUser(_id).subscribe();
     this.updateUsers();
   }
 
-  getUserClass(userId: number) {
-    if (this.selectedUser && this.selectedUser.getId() === userId) {
+  getUserClass(_id: string): string {
+    if (this.selectedUser && this.selectedUser._id === _id) {
       return 'selectedUser';
     } else {
       return 'user';
     }
+  }
+
+  setSelectedUser(user: User): void {
+    if (this.selectedUser == null || this.selectedUser.fullName !== user.fullName) {
+      this.selectedUser = user;
+    } else {
+      this.selectedUser = null;
+    }
+  }
+
+  addUser() {
+    this._userService.addUser().subscribe();
+    this.updateUsers();
   }
 }

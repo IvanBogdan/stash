@@ -1,10 +1,10 @@
 .user {
     margin: 5px;
-    width: 200px;
+    width: 150px;
 }
 .selectedUser {
     margin: 5px;
-    width: 250px;
+    width: 180px;
 }
 ul {
     list-style-type: none;

@@ -1,48 +1,56 @@
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+
+@Injectable()
 export class UserService {
   
-  private users: Array<User>
+  private users;
 
-  constructor() {
-    this.init();
+  public userlist = {
+    users: [
+      { fullName: 'Ivan', email: 'ivan@mail.ru', gender: 'M', birthdate: new Date(1986, 4, 30) }
+    ]
+  }
+    // new User('Ivan', 'ivan@mail.ru', null, new Date(1986, 4, 30), 'M', 'ivanStreet 23')
+
+  constructor(private _http: HttpClient) {
   }
 
   private init = (): void => {
-    this.users = [
-      new User('Ivan', 31, 'male'),
-      new User('John', 23, 'male'),
-      new User('Alice', 19, 'female')
-    ];
   }
   
   public getUsers(): Array<User> {
     return this.users;
   }
 
-  public removeUser(name: string) {
-    return this.users = this.users.filter(user => user.getName() !== name);
+  public removeUser(id: string) {
+    return this._http.delete('http://test-api.javascript.ru/v1/bogdanovip/users/' + id);
+  }
+
+  public getAll() {
+    return this._http.get('http://test-api.javascript.ru/v1/bogdanovip/users');
+  }
+
+  public addUser() {
+    return this._http.post('http://test-api.javascript.ru/v1/bogdanovip', this.userlist);
   }
 }
 
 export class User {
+  public _id: string;
+  public fullName: string;
+  public email: string
+  public avatarUrl: string
+  public birthdate: Date
+  public gender: string
+  public address: string
 
-  private static _nextId: number = 0;
-  private _id: number;
-  private _name: string;
-  private _age: number;
-  private _gender: string;
-
-  constructor(name: string, age: number, gender: string) {
-    this._id = User._nextId++;
-    this._name = name;
-    this._age = age;
-    this._gender = gender;
+  constructor(fullName: string, email: string, avatarUrl: string, birthdate: Date, gender: string, address: string) {
+    this.fullName = fullName;
+    this.email = email;
+    this.avatarUrl = avatarUrl;
+    this.birthdate = birthdate;
+    this.gender = gender;
+    this.address = address;
   }
-
-  public getId = (): number => this._id;
-
-  public getName = (): string => this._name;
-
-  public getAge = (): number => this._age;
-  
-    public getGender = (): string => this._gender;
 }

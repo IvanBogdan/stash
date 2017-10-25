@@ -26,7 +26,7 @@ export class UserCardComponent implements OnInit {
   }
 
   getAvatar(): string {
-    if (this.user.getGender() === 'male') {
+    if (this.user.gender === 'M') {
       return 'assets/image/profile/img_avatar_male.png'
     } else {
       return 'assets/image/profile/img_avatar_female.png'
