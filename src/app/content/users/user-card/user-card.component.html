@@ -1,8 +1,13 @@
-<div class="card" (click)="selectUser()">
+<div class="userCard">
+
   <p class="closeX" (click)="removeUser()">x</p>
-  <img [src]="getAvatar()" alt="Avatar" style="width:100%;">
-  <div class="container">
-    <h4><b>{{user?.fullName}}</b></h4>
-    <p>{{user?.birthdate | date:'dd.MM.y'}}</p> 
+
+  <div class="card" (click)="selectUser()">
+    <img [src]="getAvatar()" alt="Avatar" style="width:100%;">
+    <div class="container">
+      <h4><b>{{user?.fullName}}</b></h4>
+      <p>{{user?.birthdate | date:'dd.MM.y'}}</p>
+    </div>
   </div>
+
 </div>

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService, User } from '../../user/user.service';
+import {Component, OnInit} from '@angular/core';
+import {UserService, User} from '../../user/user.service';
 
 @Component({
   selector: 'app-users',
@@ -12,18 +12,12 @@ export class UsersComponent implements OnInit {
 
   public selectedUser: User;
 
-  constructor(private _userService: UserService) { }
+  private response;
+
+  constructor(private _userService: UserService) {
+  }
 
   ngOnInit() {
-    this.updateUsers();
-  }
-
-  updateUsers(): void {
-    this._userService.getAll().subscribe(users => this.users = users);
-  }
-
-  removeUser(_id: string): void {
-    this._userService.removeUser(_id).subscribe();
     this.updateUsers();
   }
 
@@ -35,6 +29,17 @@ export class UsersComponent implements OnInit {
     }
   }
 
+  updateUsers(): void {
+    this._userService.getUsers().subscribe(users => this.users = users);
+  }
+
+  removeUser(id: string): void {
+    this.response = this._userService.removeUser(id)
+      .subscribe(
+        () => this.updateUsers(),
+        () => this.updateUsers());
+  }
+
   setSelectedUser(user: User): void {
     if (this.selectedUser == null || this.selectedUser.fullName !== user.fullName) {
       this.selectedUser = user;
@@ -44,7 +49,9 @@ export class UsersComponent implements OnInit {
   }
 
   addUser() {
-    this._userService.addUser().subscribe();
-    this.updateUsers();
+    this._userService.addUser()
+      .subscribe(
+        () => this.updateUsers(),
+        () => this.updateUsers());
   }
 }

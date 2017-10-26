@@ -1,11 +1,13 @@
 .user {
-    margin: 5px;
-    width: 150px;
+  margin: 5px;
+  width: 150px;
 }
+
 .selectedUser {
-    margin: 5px;
-    width: 180px;
+  margin: 5px;
+  width: 180px;
 }
+
 ul {
-    list-style-type: none;
-  }
+  list-style-type: none;
+}
