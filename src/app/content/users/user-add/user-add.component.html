@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th>Name:</th>
+    <th><input type="text" #userName style="width: 140px"></th>
+  </tr>
+  <tr>
+    <th>Email:</th>
+    <th><input type="text" #userEmail style="width: 140px"></th>
+  </tr>
+  <tr>
+    <th>Birthday:</th>
+    <th><input type="date" #userBirthday style="width: 140px"></th>
+  </tr>
+  <tr>
+    <th>Gender:</th>
+    <th><input type="text" #userGender style="width: 140px"></th>
+  </tr>
+</table>
+<button (click)='addUser(userName.value, userEmail.value, userBirthday.value, userGender.value)'>Add User</button>

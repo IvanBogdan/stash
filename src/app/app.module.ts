@@ -6,18 +6,29 @@ import {AppComponent} from './app.component';
 import {ContentComponent} from './content/content.component';
 import {UsersComponent} from './content/users/users.component';
 import {UserCardComponent} from './content/users/user-card/user-card.component';
-import {UserService} from './user/user.service';
+import {UserService} from './services/user/user.service';
+import {UserAddComponent} from './content/users/user-add/user-add.component';
+import {LoginComponent} from './login/login.component';
+import {RouterModule} from '@angular/router';
+
+const routes = [
+  {path: '', component: LoginComponent},
+  {path: 'users', component: UsersComponent}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     ContentComponent,
     UsersComponent,
-    UserCardComponent
+    UserCardComponent,
+    UserAddComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
