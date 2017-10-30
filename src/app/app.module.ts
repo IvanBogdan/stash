@@ -1,36 +1,31 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
-import {ContentComponent} from './content/content.component';
-import {UsersComponent} from './content/users/users.component';
-import {UserCardComponent} from './content/users/user-card/user-card.component';
-import {UserService} from './services/user/user.service';
-import {UserAddComponent} from './content/users/user-add/user-add.component';
-import {LoginComponent} from './login/login.component';
 import {RouterModule} from '@angular/router';
+import {LoginComponent} from './login/login.component';
+import {ContentComponent} from './content/content.component';
+import {MailboxComponent} from './content/mailbox/mailbox.component';
+import {SidePanelComponent} from './content/mailbox/side-panel/side-panel.component';
 
 const routes = [
   {path: '', component: LoginComponent},
-  {path: 'users', component: UsersComponent}
+  {path: 'mail', component: ContentComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     ContentComponent,
-    UsersComponent,
-    UserCardComponent,
-    UserAddComponent,
-    LoginComponent
+    MailboxComponent,
+    SidePanelComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [UserService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
