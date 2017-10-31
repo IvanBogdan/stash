@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MailBox} from '../../../services/mailbox/MailBox';
+import {MailboxService} from '../../../services/mailbox/mailbox.service';
 
 @Component({
   selector: 'app-side-panel',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidePanelComponent implements OnInit {
 
-  constructor() { }
+  private boxList: [MailBox];
+
+  constructor(private mailboxService: MailboxService) { }
 
   ngOnInit() {
+    this.updateBoxes();
   }
 
+  updateBoxes(): void {
+    this.mailboxService.getMailBoxes().subscribe(boxes => this.boxList = boxes);
+  }
+
+  getBoxes(): [MailBox] {
+    return this.boxList;
+  }
 }

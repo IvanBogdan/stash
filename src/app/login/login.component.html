@@ -1,5 +1,5 @@
 <!-- Button to open the modal login form -->
-<button onclick="document.getElementById('id01').style.display='block'" style="width: auto;">Login</button>
+<button onclick="document.getElementById('id01').style.display='block'" class="mailbtn" style="width: auto;">Login</button>
 
 <!-- The Modal -->
 <div id="id01" class="modal">
@@ -21,7 +21,7 @@
              name="psw"
              required>
 
-      <button routerLink="mail">Login</button>
+      <button routerLink="mail" class="mailbtn">Login</button>
       <input type="checkbox"
              checked="checked"> Remember me
     </div>
@@ -30,7 +30,7 @@
          style="background-color:#f1f1f1">
       <button type="button"
               onclick="document.getElementById('id01').style.display='none'"
-              class="cancelbtn">Cancel</button>
+              class="mailbtn cancelbtn">Cancel</button>
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form>

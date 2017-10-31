@@ -1,11 +1,11 @@
-.leftPanel {
-  width: 10%;
+.sBox {
+  width: 30%;
   float: left;
   margin: 20px;
 }
 
-.mailbox {
-  width: 75%;
+.sLetter {
+  width: 30%;
   float: left;
   margin: 20px;
 }

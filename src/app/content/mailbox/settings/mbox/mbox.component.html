@@ -1,0 +1,10 @@
+Удалить:
+<ul style="width: 100px;">
+  <li *ngFor="let box of getBoxes()">
+    <button (click)="removeMailbox(box._id)" class="mailbtn">{{box?.title}}</button>
+  </li>
+</ul>
+<p>
+  Mailbox: <input #mailbox type="text">
+  <button (click)="addMailbox(mailbox.value)">Add</button>
+</p>

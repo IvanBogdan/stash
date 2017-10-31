@@ -1,0 +1,13 @@
+<h1 style="text-align: center;">{{getBox()?.title}}</h1>
+
+<div class="letters">
+  <ul>
+    <li *ngFor="let letter of getLetters()">
+      <a routerLink="{{letter?._id}}">{{letter?.subject}}</a>
+    </li>
+  </ul>
+</div>
+
+<div class="letter">
+  <router-outlet></router-outlet>
+</div>

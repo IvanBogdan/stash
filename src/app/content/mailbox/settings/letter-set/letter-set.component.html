@@ -1,0 +1,27 @@
+Удалить:
+<ul style="width: 100px;">
+  <li *ngFor="let letter of getLetters()">
+    <button (click)="removeLetter(letter._id)" class="mailbtn">{{letter?.subject}}</button>
+  </li>
+</ul>
+
+<table>
+  <tr>
+    <th>Mailbox:</th>
+    <th><input #mailbox type="text"></th>
+  </tr>
+  <tr>
+    <th>Subject:</th>
+    <th><input #subject type="text"></th>
+  </tr>
+  <tr>
+    <th>Body:</th>
+    <th><input #body type="text"></th>
+  </tr>
+  <tr>
+    <th>To:</th>
+    <th><input #to type="text"></th>
+  </tr>
+</table>
+
+<button (click)="addLetter(mailbox.value, subject.value, body.value, to.value)">Add</button>
