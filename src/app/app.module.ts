@@ -13,20 +13,29 @@ import {SettingsComponent} from './content/mailbox/settings/settings.component';
 import {MboxComponent} from './content/mailbox/settings/mbox/mbox.component';
 import {LetterSetComponent} from './content/mailbox/settings/letter-set/letter-set.component';
 import {LetterComponent} from './content/mailbox/mail-list/letter/letter.component';
+import {UsersComponent} from './content/users/users.component';
+import {UserCardComponent} from './content/users/user-card/user-card.component';
+import {UserAddComponent} from './content/users/user-add/user-add.component';
 
 import {MailboxService} from './services/mailbox/mailbox.service';
 import {LetterService} from './services/letter/letter.service';
+import {UserService} from './services/user/user.service';
 
 const routes = [
-  {path: '', component: LoginComponent},
+  {path: '', pathMatch: 'full', component: LoginComponent},
   {
-    path: 'mail', component: ContentComponent, children: [
-    {path: 'settings', component: SettingsComponent},
+    path: 'imail', component: ContentComponent, children: [
     {
-      path: ':mailbox', component: MailListComponent, children: [
-      {path: ':letter', component: LetterComponent},
+      path: 'mail', component: MailboxComponent, children: [
+      {path: 'settings', component: SettingsComponent},
+      {
+        path: ':mailbox', component: MailListComponent, children: [
+        {path: ':letter', component: LetterComponent},
+      ]
+      }
     ]
-    }
+    },
+    {path: 'users', component: UsersComponent}
   ]
   }
 ];
@@ -42,7 +51,10 @@ const routes = [
     SettingsComponent,
     MboxComponent,
     LetterSetComponent,
-    LetterComponent
+    LetterComponent,
+    UsersComponent,
+    UserCardComponent,
+    UserAddComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +62,8 @@ const routes = [
     HttpClientModule
   ],
   providers: [MailboxService,
-    LetterService],
+    LetterService,
+    UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

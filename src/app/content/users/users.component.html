@@ -1,0 +1,11 @@
+<ul>
+  <li *ngFor="let user of users">
+    <div [class]="getUserClass(user?._id)">
+      <app-user-card [user]="user"
+                     (userRemover)="removeUser(user._id)"
+                     (userSelected)="setSelectedUser(user)"></app-user-card>
+    </div>
+  </li>
+</ul>
+
+<app-user-add (userAdded)="updateUsers()"></app-user-add>

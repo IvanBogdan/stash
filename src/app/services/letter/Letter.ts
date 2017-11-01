@@ -1,4 +1,4 @@
-export class Letter {
+export interface Letter {
   _id: string;
   mailbox: string;
   subject: string;
