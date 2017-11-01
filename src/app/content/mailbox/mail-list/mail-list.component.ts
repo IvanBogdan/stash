@@ -22,7 +22,10 @@ export class MailListComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       params => this.mailboxService.getMailBox(params.mailbox).subscribe(
-        box => {this.box = box; this.updateLetters(); }
+        box => {
+          this.box = box;
+          this.updateLetters();
+        }
       )
     );
   }

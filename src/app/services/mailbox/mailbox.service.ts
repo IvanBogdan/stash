@@ -18,7 +18,7 @@ export class MailboxService {
   }
 
   public getMailBox(id: string): Observable<MailBox> {
-    return this.http.get(Consts.MAILBOXES_URL + '/' + id);
+    return this.http.get<MailBox>(Consts.MAILBOXES_URL + '/' + id);
   }
 
   public removeMailBox(id: string): Observable<string> {
@@ -26,6 +26,6 @@ export class MailboxService {
   }
 
   public addMailBox(boxName: string): Observable<[MailBox]> {
-    return this.http.post(Consts.MAILBOXES_URL, {title: boxName});
+    return this.http.post<[MailBox]>(Consts.MAILBOXES_URL, {title: boxName});
   }
 }

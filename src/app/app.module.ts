@@ -22,9 +22,11 @@ const routes = [
   {
     path: 'mail', component: ContentComponent, children: [
     {path: 'settings', component: SettingsComponent},
-    {path: ':mailbox', component: MailListComponent, children: [
+    {
+      path: ':mailbox', component: MailListComponent, children: [
       {path: ':letter', component: LetterComponent},
-    ]}
+    ]
+    }
   ]
   }
 ];

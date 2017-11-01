@@ -11,7 +11,8 @@ export class LetterSetComponent implements OnInit {
 
   private letterList: [Letter];
 
-  constructor(private letterService: LetterService) { }
+  constructor(private letterService: LetterService) {
+  }
 
   ngOnInit() {
     this.updateLetters();

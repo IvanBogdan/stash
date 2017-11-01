@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MailBox} from '../../../services/mailbox/MailBox';
 import {MailboxService} from '../../../services/mailbox/mailbox.service';
 
@@ -11,7 +11,8 @@ export class SidePanelComponent implements OnInit {
 
   private boxList: [MailBox];
 
-  constructor(private mailboxService: MailboxService) { }
+  constructor(private mailboxService: MailboxService) {
+  }
 
   ngOnInit() {
     this.updateBoxes();

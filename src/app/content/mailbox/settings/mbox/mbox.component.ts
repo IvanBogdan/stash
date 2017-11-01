@@ -12,7 +12,8 @@ export class MboxComponent implements OnInit {
   private boxList: [MailBox];
   @Output() boxEdited: EventEmitter<any> = new EventEmitter();
 
-  constructor(private mailboxService: MailboxService) { }
+  constructor(private mailboxService: MailboxService) {
+  }
 
   ngOnInit() {
     this.updateBoxes();
@@ -28,7 +29,7 @@ export class MboxComponent implements OnInit {
 
   addMailbox(boxName: string) {
     this.mailboxService.addMailBox(boxName)
-      .subscribe( _ => this.updateBoxes());
+      .subscribe(_ => this.updateBoxes());
   }
 
   removeMailbox(boxId: string) {

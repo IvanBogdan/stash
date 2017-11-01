@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {Letter} from './Letter';
@@ -18,7 +18,7 @@ export class LetterService {
   }
 
   public getLetter(id: string): Observable<Letter> {
-    return this.http.get(Consts.LETTERS_URL + '/' + id);
+    return this.http.get<Letter>(Consts.LETTERS_URL + '/' + id);
   }
 
   public removeLetter(id: string): Observable<string> {
@@ -26,6 +26,6 @@ export class LetterService {
   }
 
   public addLetter(mailbox: string, subject: string, body: string, to: string): Observable<[Letter]> {
-    return this.http.post(Consts.LETTERS_URL, {mailbox: mailbox, subject: subject, body: body, to: to});
+    return this.http.post<[Letter]>(Consts.LETTERS_URL, {mailbox: mailbox, subject: subject, body: body, to: to});
   }
 }
